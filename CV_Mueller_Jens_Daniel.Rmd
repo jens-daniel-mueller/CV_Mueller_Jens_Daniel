@@ -2,12 +2,14 @@
 name: Jens Daniel
 surname: Müller
 position: "Postdoctoral Researcher"
-pronouns: he/his
+profilepic: portrait_JDM_square.jpg
 address: "ETH Zurich | Department of Environmental Systems Science"
 www: jens-daniel-mueller.github.io
 email: "jensdaniel.mueller@usys.ethz.ch"
 twitter: Jens_D_Mueller
 github: jens-daniel-mueller
+orcid: 0000-0003-3137-0883
+headcolor: 005f73
 date: "`r format(Sys.time(), '%B %Y')`"
 csl: "csl/copernicus-publications_jdm.csl"
 output:
@@ -25,30 +27,91 @@ library(vitae)
 
 My name is Jens and I'm currently doing my second PostDoc at ETH Zurich. My scientific focus is on marine biogeochemistry, meaning I try to understand how organisms - including homo technicus - shape their chemical environment, and vice versa. To do so, I enjoy wrangling, visualizing, synthesizing and thereby understanding data obtained mainly from autonomous observatories such as voluntary observing ships, floats and buoys. If the CO2 content of seawater is involved in one way or another, this makes me even more happy.
 
+# Most relevant publications
 # Education
 
 ```{r}
+
 tribble(
-  ~ Degree, ~ Year, ~ Institution, ~ Where,
-  "Informal studies", "1889-91", "Flying University", "Warsaw, Poland",
-  "Master of Physics", "1893", "Sorbonne Université", "Paris, France",
-  "Master of Mathematics", "1894", "Sorbonne Université", "Paris, France"
+  ~ Degree, ~ Year, ~ Institution, ~ Where, ~Why,
+  
+  "PhD Chemical Oceanography", 
+  "07 / 2014 – 06 /2018", 
+  "Leibniz-Institute for Baltic Sea Research Warnemünde (IOW)", 
+  "Warnemünde, Germany",
+  c("Ocean Acidification in the Baltic Sea: Involved Processes, Metrology of pH in Brackish Waters, and Calcification under Fluctuating Conditions",
+    "Grade: With honors (Summa cum laude)"),
+  
+  "MSc Biological Oceanography", 
+  "09 / 2010 – 08 / 2012", 
+  "GEOMAR Helmholtz Centre for Ocean Research Kiel", 
+  "Kiel, Germany",
+  "Grade: 1.2 (ECTS grade, A Excellent)",
+
+  "BSc Chemistry", 
+  "09 / 2008 – 08 / 2009", 
+  "Phillips-University Marburg", 
+  "Marburg, Germany",
+  "Grade: 1.7 (ECTS grade B “Very good”)"
 ) %>%
-  detailed_entries(Degree, Year, Institution, Where)
+  detailed_entries(Institution, Year, Degree, Where, Why)
 ```
 
-# Nobel Prizes
+
+# Employment
 
 ```{r}
+
 tribble(
-  ~Year, ~Type, ~Desc,
-  1903, "Physics", "Awarded for her work on radioactivity with Pierre Curie and Henri Becquerel"
+  ~ Role,
+  ~ Year,
+  ~ Institution,
+  ~ Where,
+  ~ Details,
+  
+  "Postdoctoral researcher",
+  "07 /2020 - present",
+  "ETH Zürich",
+  "Zurich, Switzerland",
+  "Environmental Physics | Prof. Dr. Nicolas Gruber",
+  
+  "Postdoctoral researcher",
+  "07 / 2018 – 06 /2020",
+  "Leibniz-Institute for Baltic Sea Research Warnemünde (IOW)",
+  "Warnemünde, Germany",
+  "Trace gas biogeochemistry | Prof. Dr. Gregor Rehder",
+  
+  "Scientific Employee",
+  "10 / 2013 – 03 / 2014",
+  "GEOMAR Helmholtz Centre for Ocean Research Kiel",
+  "Kiel, Germany",
+  c(
+    "Benthic Ecology | Prof. Dr. M. Wahl",
+    "Marine Biogeochemistry | Prof. Dr. U. Riebesell"
+  ),
+  
+  "Sailing Instructor",
+  "07 – 10 / 2013 ",
+  "Kiel Marketing GmbH | Camp 24/7",
+  "Kiel, Germany",
+  c(),
+  
+  "Divemaster",
+  "01 – 03 / 2013",
+  "Al Dive dive centre",
+  "Loubiere, Dominica",
+  c(),
+  
+  "Research Assistant",
+  "05 – 08 / 2010",
+  "GEOMAR Helmholtz Centre for Ocean Research Kiel",
+  "Kiel, Germany",
+  "Evolutionary Ecology of Marine Fishes | Prof. Dr. T. Reusch"
+  
 ) %>%
-  brief_entries(
-    glue::glue("Nobel Prize in {Type}"),
-    Year,
-    Desc
-  )
+  detailed_entries(Institution, Year, Role, Where, Details)
+
+
 ```
 
 # Publications
@@ -102,3 +165,6 @@ bibliography_entries("publication_list_jdm.bib") %>%
 
 
 ```
+
+# Teaching
+# Honors
