@@ -1,15 +1,13 @@
 ---
-name: Marie
-surname: Curie
-position: "Professor"
-pronouns: she/her
-address: "School of Physics & Chemistry, École Normale Supérieure"
-phone: +1 22 3333 4444
-www: mariecurie.com
-email: "Marie.Curie@ens.fr"
-twitter: mariecurie
-github: mariecurie
-linkedin: mariecurie
+name: Jens Daniel
+surname: Müller
+position: "Postdoctoral Researcher"
+pronouns: he/his
+address: "ETH Zurich | Department of Environmental Systems Science"
+www: jens-daniel-mueller.github.io
+email: "jensdaniel.mueller@usys.ethz.ch"
+twitter: Jens_D_Mueller
+github: jens-daniel-mueller
 date: "`r format(Sys.time(), '%B %Y')`"
 csl: "csl/copernicus-publications_jdm.csl"
 output:
@@ -23,11 +21,9 @@ library(tidyverse)
 library(vitae)
 ```
 
-# Some stuff about me
+# Brief bio
 
- * I poisoned myself doing research.
- * I was the first woman to win a Nobel prize
- * I was the first person and only woman to win a Nobel prize in two different sciences.
+My name is Jens and I'm currently doing my second PostDoc at ETH Zurich. My scientific focus is on marine biogeochemistry, meaning I try to understand how organisms - including homo technicus - shape their chemical environment, and vice versa. To do so, I enjoy wrangling, visualizing, synthesizing and thereby understanding data obtained mainly from autonomous observatories such as voluntary observing ships, floats and buoys. If the CO2 content of seawater is involved in one way or another, this makes me even more happy.
 
 # Education
 
