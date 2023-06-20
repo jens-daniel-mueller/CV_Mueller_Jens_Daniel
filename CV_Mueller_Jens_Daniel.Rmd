@@ -9,6 +9,7 @@ email: "jensdaniel.mueller@usys.ethz.ch"
 twitter: Jens_D_Mueller
 github: jens-daniel-mueller
 orcid: 0000-0003-3137-0883
+aboutme: Ocean biogeochemist with a favour for carbon, observations and a pinch of data science
 headcolor: 005f73
 date: "`r format(Sys.time(), '%B %Y')`"
 csl: "csl/copernicus-publications_jdm.csl"
@@ -25,9 +26,22 @@ library(vitae)
 
 # Brief bio
 
-My name is Jens and I'm currently doing my second PostDoc at ETH Zurich. My scientific focus is on marine biogeochemistry, meaning I try to understand how organisms - including homo technicus - shape their chemical environment, and vice versa. To do so, I enjoy wrangling, visualizing, synthesizing and thereby understanding data obtained mainly from autonomous observatories such as voluntary observing ships, floats and buoys. If the CO2 content of seawater is involved in one way or another, this makes me even more happy.
+# Key publications
 
-# Most relevant publications
+```{r}
+
+bibliography_entries("publication_list_jdm.bib") %>%
+  filter(id %in% c("muller_long-term_2016",
+                   "muller_metrology_2018",
+                   "gruber_trends_2023",
+                   "muller_decadal_2023",
+                   "schneider_biogeochemical_2018"))
+
+
+```
+
+
+
 # Education
 
 ```{r}
@@ -58,7 +72,7 @@ tribble(
 ```
 
 
-# Employment
+# Employment and occupation
 
 ```{r}
 
@@ -166,5 +180,110 @@ bibliography_entries("publication_list_jdm.bib") %>%
 
 ```
 
-# Teaching
-# Honors
+## Selected conference presentations
+
+# Teaching experience
+
+```{r, eval=FALSE}
+University of Rostock
+SS 2019
+Analytical and Environmental Chemistry I
+
+Dissolved Gases
+03.06.2019 | Slides
+
+Water
+03.06.2019 | Slides
+WS 2018/19
+Analytical Chemistry 4: Environmental Chemistry
+
+Dissolved Gases
+14.01.2019 | Slides
+
+Current topic: Baltic Sea Biogeochemistry
+16.01.2019 | Slides
+```
+
+
+
+# Funding
+
+```{r}
+
+
+tribble(
+  ~ Year,
+  ~ Award,
+  ~ Institution,
+  ~ comment,
+  ~ detail,
+  
+  "2019-2022",
+  "SPECTROPHABS",
+  "BSH",
+  "Spectrophotometric pH-measurements for monitoring of marine acidification in the Baltic Sea",
+  "co-applicant",
+  
+  "2018",
+  "Early-Career Grant",
+  "National Geographic Society",
+  "Financial and outreach support for Bloomsail expedition",
+  c(),
+  
+  "2010 - 2018",
+  "Academic Scholarships",
+  "German Academic Scholarship Foundation",
+  "Multiple fundings granted independently",
+  c(
+    "PhD scholarship (ideational)",
+    "Full student scholarship",
+    "Field work grant, Patagonia, Chile",
+    "Advanced English course, Bath, England",
+    "Summer academy, San Giovanni, Italy"
+  )
+) %>%
+  detailed_entries(comment, Year, Award, Institution, detail)
+
+
+```
+
+
+# Honors and Awards
+
+```{r}
+
+tribble(
+  ~ Year, ~ Award, ~ Institution, ~comment,
+  
+"2019",
+"Briese Award",
+"Shipping company Briese",
+"Outstanding PhD thesis in Marine Research",
+
+"2019",
+"Dissertation award",
+"German Water Chemical Society",
+"Outstanding PhD thesis in Water Chemistry, sponsored by Walter-Kölle foundation",
+
+"2019",
+"Dissertation award",
+"Baltic Sea Research Foundation",
+"Outstanding PhD thesis in Baltic Sea Science",
+
+"2017",
+"Best poster award",
+"Baltic Sea Science Congress", 
+"for presentation by newcomers",
+
+"2005",
+"Book-price",
+"Bertha-von-Suttner Gymnasium",
+"for extraordinary achievements during the Abitur",
+
+) %>%
+  detailed_entries(comment, Year, Award, Institution)
+
+
+
+```
+
