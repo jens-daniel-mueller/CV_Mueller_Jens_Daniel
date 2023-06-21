@@ -9,7 +9,7 @@ email: "jensdaniel.mueller@usys.ethz.ch"
 twitter: Jens_D_Mueller
 github: jens-daniel-mueller
 orcid: 0000-0003-3137-0883
-aboutme: Ocean biogeochemist with a favour for carbon, observations and a pinch of data science
+aboutme: Ocean biogeochemist with a favour for carbon & observations seasoned with data science
 headcolor: 005f73
 date: "`r format(Sys.time(), '%B %Y')`"
 csl: "csl/copernicus-publications_jdm.csl"
@@ -24,13 +24,35 @@ library(tidyverse)
 library(vitae)
 ```
 
-# Brief bio
+# About
+
+I'm a biogeochemists studying the ocean carbon cycle through measurements of CO~2~ in seawater. Since 2020, I work as a PostDoc with Nicolas Gruber at ETH Zurich. We use global ship-based observations to reconstruct the [accumulation of CO~2~ in the global ocean](https://doi.org/10.22541/essoar.167525217.76035050/v1), and how this drives acidification in the ocean interior. This work profits from the experience gained during my PhD, specifically the development of pH analytics, the analysis of autononmous pCO~2~ measurements from a voluntary observing ship and several months spend at sea. As a coordinator of [RECCAP2](https://reccap2-ocean.github.io/) - the second cycle of the REgional Carbon Cycle Assessment and Processes project - I'm working with an international board of around 100 scientists covering a broad view on the ocean carbon sink through models and surface flux estimates.
 
 # Key publications
 
 ```{r}
 
+pub_list_formatted <- 
 bibliography_entries("publication_list_jdm.bib") %>%
+  mutate(title = str_replace(title,
+                             "CO_",
+                             "CO")) %>%
+  mutate(title = str_replace(title,
+                             "\\{2\\}",
+                             "2")) %>%
+  mutate(title = gsub("([\\])", "", title)) %>%
+  mutate(title = str_replace(title,
+                             "\\{textrm2\\}",
+                             "2")) %>% 
+  mutate(title = str_replace_all(title,
+                             "CO2",
+                             "CO~2~")) %>% 
+  mutate(title = str_replace_all(title,
+                             "pHT",
+                             "pH~T~"))
+  # mutate(author = str_replace(author, "Müller", "**Müller**"))
+
+pub_list_formatted %>%
   filter(id %in% c("muller_long-term_2016",
                    "muller_metrology_2018",
                    "gruber_trends_2023",
@@ -40,7 +62,40 @@ bibliography_entries("publication_list_jdm.bib") %>%
 
 ```
 
+# Postdoctoral employment
 
+```{r}
+
+tribble(
+  ~ Role,
+  ~ Year,
+  ~ Institution,
+  ~ Where,
+  ~ Details,
+  
+  "Postdoctoral researcher",
+  "07 /2020 - present",
+  "ETH Zurich",
+  "Zurich, Switzerland",
+  "Environmental Physics | Prof. Dr. Nicolas Gruber",
+  
+  "Postdoctoral researcher",
+  "07 / 2018 – 06 /2020",
+  "Leibniz-Institute for Baltic Sea Research Warnemünde (IOW)",
+  "Warnemünde, Germany",
+  "Trace gas biogeochemistry | Prof. Dr. Gregor Rehder",
+  
+  "Visiting scientist",
+  "07 / 2019 – 06 /2020",
+  "Max Planck Institute for Meteorology (MPI-M)",
+  "Hamburg, Germany",
+  "Observations, Analysis and Synthesis | Dr. Peter Landschützer"
+
+) %>%
+  detailed_entries(Institution, Year, Role, Where, Details)
+
+
+```
 
 # Education
 
@@ -71,8 +126,7 @@ tribble(
   detailed_entries(Institution, Year, Degree, Where, Why)
 ```
 
-
-# Employment and occupation
+# Experiences
 
 ```{r}
 
@@ -82,19 +136,7 @@ tribble(
   ~ Institution,
   ~ Where,
   ~ Details,
-  
-  "Postdoctoral researcher",
-  "07 /2020 - present",
-  "ETH Zürich",
-  "Zurich, Switzerland",
-  "Environmental Physics | Prof. Dr. Nicolas Gruber",
-  
-  "Postdoctoral researcher",
-  "07 / 2018 – 06 /2020",
-  "Leibniz-Institute for Baltic Sea Research Warnemünde (IOW)",
-  "Warnemünde, Germany",
-  "Trace gas biogeochemistry | Prof. Dr. Gregor Rehder",
-  
+
   "Scientific Employee",
   "10 / 2013 – 03 / 2014",
   "GEOMAR Helmholtz Centre for Ocean Research Kiel",
@@ -104,23 +146,39 @@ tribble(
     "Marine Biogeochemistry | Prof. Dr. U. Riebesell"
   ),
   
-  "Sailing Instructor",
-  "07 – 10 / 2013 ",
-  "Kiel Marketing GmbH | Camp 24/7",
-  "Kiel, Germany",
-  c(),
-  
-  "Divemaster",
-  "01 – 03 / 2013",
-  "Al Dive dive centre",
-  "Loubiere, Dominica",
-  c(),
-  
   "Research Assistant",
   "05 – 08 / 2010",
   "GEOMAR Helmholtz Centre for Ocean Research Kiel",
   "Kiel, Germany",
-  "Evolutionary Ecology of Marine Fishes | Prof. Dr. T. Reusch"
+  "Evolutionary Ecology of Marine Fishes | Prof. Dr. T. Reusch",
+  
+  "Certified Scientific Diver & Divemaster",
+  "2011 - present",
+  "200+ logged dives, dive mission leader, Nitrox-diver",
+  "Global",
+  c(
+    "Off-shore mesocosm experiment, Gran Canaria, Spain (2 months)",
+    "Huinay Scientific Field Station, Patagonia, Chile (3 months)",
+    "Divemaster at Al Dive dive centre, Loubiere, Dominica (3 months)"
+  ),
+  
+  "Research cruises",
+  "2011 - 2020",
+  "10 expeditions, 6 months at sea",
+  "Baltic Sea",
+  c(
+    "RVs Elisabeth Mann Borgese, Aranda, Alkor & Litorina",
+    "VOS Finnmaid",
+    "SVs HRIMFARE & Littorina"
+  ),
+  
+  "Sailor",
+  "2010 - present",
+  "Boat driver, safety and radio certificates",
+  "Global",
+  c("Member of the Academic Sailing Association in Kiel (ASViK e.V.)",
+    "Several sailing campaigns including two ocean crossings",
+    "Owner of SV Tina V (2019 - 2022)")
   
 ) %>%
   detailed_entries(Institution, Year, Role, Where, Details)
@@ -134,8 +192,24 @@ tribble(
 
 ```{r}
 
-bibliography_entries("publication_list_jdm.bib") %>%
-  filter(type == "article-journal")
+pub_list_formatted %>%
+  filter(type == "article-journal") %>%
+  mutate(title = str_replace(title,
+                             "CO_",
+                             "CO")) %>%
+  mutate(title = str_replace(title,
+                             "\\{2\\}",
+                             "2")) %>%
+  mutate(title = gsub("([\\])", "", title)) %>%
+  mutate(title = str_replace(title,
+                             "\\{textrm2\\}",
+                             "2")) %>% 
+  mutate(title = str_replace_all(title,
+                             "CO2",
+                             "CO~2~")) %>% 
+  mutate(title = str_replace_all(title,
+                             "pHT",
+                             "pH~T~"))
 
 
 ```
@@ -144,7 +218,7 @@ bibliography_entries("publication_list_jdm.bib") %>%
 
 ```{r}
 
-bibliography_entries("publication_list_jdm.bib") %>%
+pub_list_formatted %>%
   filter(type == "report")
 
 
@@ -154,7 +228,7 @@ bibliography_entries("publication_list_jdm.bib") %>%
 
 ```{r}
 
-bibliography_entries("publication_list_jdm.bib") %>%
+pub_list_formatted %>%
   filter(type == "book")
 
 
@@ -164,7 +238,7 @@ bibliography_entries("publication_list_jdm.bib") %>%
 
 ```{r}
 
-bibliography_entries("publication_list_jdm.bib") %>%
+pub_list_formatted %>%
   filter(type == "thesis")
 
 
@@ -174,7 +248,7 @@ bibliography_entries("publication_list_jdm.bib") %>%
 
 ```{r}
 
-bibliography_entries("publication_list_jdm.bib") %>%
+pub_list_formatted %>%
   filter(type == "")
 
 
@@ -184,27 +258,46 @@ bibliography_entries("publication_list_jdm.bib") %>%
 
 # Teaching experience
 
-```{r, eval=FALSE}
-University of Rostock
-SS 2019
-Analytical and Environmental Chemistry I
+```{r}
 
-Dissolved Gases
-03.06.2019 | Slides
 
-Water
-03.06.2019 | Slides
-WS 2018/19
-Analytical Chemistry 4: Environmental Chemistry
+tribble(
+  ~ Year,
+  ~ Lecture,
+  ~ Institution,
+  ~ comment,
+  ~ detail,
+  
+  "SS 2022 & SS 2023",
+  "Global Biogeochemical Cycles and Climate (with Nicolas Gruber & Meike Vogt)",
+  "ETH Zurich",
+  "Tutorials:",
+  c("Seawater chemistry",
+    "Circulation of the ocean and atmosphere",
+    "Ocean carbon cycle",
+    "Terrestrial carbon cycle"),
+  
+  "SS 2019",
+  "Analytical and Environmental Chemistry I (with Gregor Rehder)",
+  "University of Rostock",
+  "Lectures:",
+  c("Dissolved Gases",
+    "Water"),
+  
+  "WS 2018/19",
+  "Analytical Chemistry IV: Environmental Chemistry (with Gregor Rehder)",
+  "University of Rostock",
+  "Lectures:",
+  c("Dissolved Gases",
+    "Current topic: Baltic Sea Biogeochemistry")
+  
+) %>%
+  detailed_entries(comment, Year, Lecture, Institution, detail)
 
-Dissolved Gases
-14.01.2019 | Slides
 
-Current topic: Baltic Sea Biogeochemistry
-16.01.2019 | Slides
+
+
 ```
-
-
 
 # Funding
 
@@ -247,7 +340,6 @@ tribble(
 
 ```
 
-
 # Honors and Awards
 
 ```{r}
@@ -286,4 +378,3 @@ tribble(
 
 
 ```
-
