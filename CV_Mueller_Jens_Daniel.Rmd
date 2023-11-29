@@ -53,10 +53,12 @@ bibliography_entries("publication_list_jdm.bib") %>%
   # mutate(author = str_replace(author, "Müller", "**Müller**"))
 
 pub_list_formatted %>%
+  filter(id %in% c("muller_decadal_2023"))
+
+pub_list_formatted %>%
   filter(id %in% c("muller_long-term_2016",
                    "muller_metrology_2018",
                    "gruber_trends_2023",
-                   "muller_decadal_2023",
                    "schneider_biogeochemical_2018"))
 
 
