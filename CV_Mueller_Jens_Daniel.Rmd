@@ -9,13 +9,15 @@ email: "jensdaniel.mueller@usys.ethz.ch"
 twitter: Jens_D_Mueller
 github: jens-daniel-mueller
 orcid: 0000-0003-3137-0883
-aboutme: Ocean biogeochemist with a favour for carbon & observations seasoned with data science
+aboutme: Ocean biogeochemist with a favour for carbon, observations & data science | father of two
 headcolor: 005f73
 date: "`r format(Sys.time(), '%B %Y')`"
 csl: "csl/copernicus-publications_jdm.csl"
 output:
   vitae::awesomecv:
     page_total: true
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -56,10 +58,16 @@ pub_list_formatted %>%
   filter(id %in% c("muller_decadal_2023"))
 
 pub_list_formatted %>%
-  filter(id %in% c("muller_long-term_2016",
-                   "muller_metrology_2018",
-                   "gruber_trends_2023",
-                   "schneider_biogeochemical_2018"))
+  filter(id %in% c("gruber_trends_2023"))
+
+pub_list_formatted %>%
+  filter(id %in% c("muller_long-term_2016"))
+
+pub_list_formatted %>%
+  filter(id %in% c("schneider_biogeochemical_2018"))
+
+pub_list_formatted %>%
+  filter(id %in% c("muller_metrology_2018"))
 
 
 ```
@@ -187,6 +195,90 @@ tribble(
 
 
 ```
+
+
+# Net academic age and career breaks
+
+```{r}
+
+tribble(
+  ~ Year, ~ Award, ~ Institution, ~comment,
+  
+  
+"",
+"Net academic age (work time since PhD in full-time equivalent)",
+"4 years and 11 months",
+"",
+  
+"",
+"Total career breaks applicable to biological age (full-time equivalent)",
+"4 years and 2 months",
+"",
+
+"07 / 2019 - 08 / 2019",
+"Breaks since PhD",
+"8 months",
+"Parental leave (2 months, 100% workload reduction)",
+
+"09 / 2019 - 10 / 2019",
+"",
+"",
+"Child care (2 months, 25% workload reduction)",
+  
+"01 / 2020 - 02 / 2020",
+"",
+"",
+"Parental leave (2 months, 100% workload reduction)",
+
+"07 / 2022 - 09 / 2022",
+"",
+"",
+"Parental leave (3 months, 33% workload reduction)",
+
+"03 / 2023 - 06 / 2023",
+"",
+"",
+"Child care (4 months, 40% workload reduction)",
+
+"09 / 2023 - 12 / 2023",
+"",
+"",
+"Child care (4 months, 10% workload reduction)",
+
+  
+  
+"07 / 2005 - 06 / 2006",
+"Breaks before PhD",
+"3 years and 4 months",
+"Civil service abroad (Arche, Dijon, France)",
+  
+"08 / 2007 - 09 / 2007",
+"",
+"",
+"Development cooperation (Growtogether e.V., Mongolia)",
+  
+"03 / 2008 - 04 / 2008",
+"",
+"",
+"Development cooperation (Growtogether e.V., Ghana)",
+  
+"09 / 2009 - 08 / 2010",
+"",
+"",
+"Biological studies as entry requirements for MSc in Biological Oceanography",
+  
+"09 / 2012 - 08 / 2013",
+"",
+"",
+"Lead of offshore sailing training campaign (ASV in Kiel e.V., Atlantic Ocean)",
+
+) %>%
+  detailed_entries(comment, Year, Award, Institution)
+
+
+
+```
+
 
 # Publications
 
