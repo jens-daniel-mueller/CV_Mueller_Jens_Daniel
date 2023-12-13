@@ -8,11 +8,12 @@ bind_rows(
   tibble(class = "Expertise", skill = "Marine CO2 system fundamentals", rating = 9, target = 9),
   tibble(class = "Expertise", skill = "Global scale processes", rating = 7, target = 8),
   tibble(class = "Expertise", skill = "Regional scale processes", rating = 7, target = 8),
+  tibble(class = "Expertise", skill = "Ocean CDR", rating = 4, target = 8),
   tibble(class = "Data acquisition", skill = "Chem. lab experiments", rating = 6, target = 6),
   tibble(class = "Data acquisition", skill = "Biol. lab experiments", rating = 4, target = 4),
   tibble(class = "Data acquisition", skill = "Field work", rating = 7, target = 7),
   tibble(class = "Data acquisition", skill = "Autonomous measurements", rating = 5, target = 5),
-  tibble(class = "Data acquisition", skill = "Numerical modelling", rating = 3, target = 4),
+  tibble(class = "Data acquisition", skill = "Num. modelling", rating = 3, target = 4),
   tibble(class = "Data interpretation", skill = "BGC observations", rating = 8, target = 10),
   tibble(class = "Data interpretation", skill = "BGC models", rating = 7, target = 9),
   tibble(class = "Data interpretation", skill = "Multi-platform observations", rating = 7, target = 9),
@@ -31,8 +32,8 @@ bind_rows(
 
 skills %>%
   ggplot() +
-  geom_col(aes(target, skill, col = "target"), fill = "grey90", width = 0.5) +
-  geom_col(aes(rating, skill, fill = "current"), width = 0.7) +
+  geom_col(aes(target, skill, col = "target\nskill level"), fill = "grey90", width = 0.5) +
+  geom_col(aes(rating, skill, fill = "current\nskill level"), width = 0.7) +
   geom_text(aes(0.2, skill, label = skill),
             hjust = 0, col = "white") +
   scale_x_continuous(
@@ -50,12 +51,14 @@ skills %>%
               scales = "free_y",
               space = "free_y",
               switch = "y") +
+  labs(title = "Self-assessment of skills and expertise",
+       subtitle = "Ratings on a scale from 0 (no skill) to 10 (highest possible skill)") +
   theme_bw() +
-  theme(axis.title.y = element_blank(),
+  theme(axis.title = element_blank(),
         axis.ticks.y = element_blank(),
         axis.text.y = element_blank(),
-        legend.position = "top")
+        legend.title = element_blank())
 
 ggsave("skill_self_assessment.png",
-       height = 8,
+       height = 7,
        width = 6)
